@@ -1,12 +1,67 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<body>
+
+Abstract - in a paragraph or two, summarize the project
+Problem statement - what are you trying to solve/do
+Related work - what papers/ideas inspired you, what datasets did you use, etc
+Methodology - what is your approach/solution/what did you do?
+Experiments/evaluation - how are you evaluating your results
+Results - How well did you do
+Examples - images/text/live demo, anything to show off your work
+Video - a 2-3 minute long video where you explain your project and the above information
 
 
+<h1>Abstract</h1>
+<p>
+GANs (Generative Adversarial Networks) is a hot topic in the Deep Learning research community. Some of the main application areas
+of GANs are image generation, text generation, translation and more. 
 
-    Abstract - in a paragraph or two, summarize the project
-    Problem statement - what are you trying to solve/do
-    Related work - what papers/ideas inspired you, what datasets did you use, etc
-    Methodology - what is your approach/solution/what did you do?
-    Experiments/evaluation - how are you evaluating your results
-    Results - How well did you do
-    Examples - images/text/live demo, anything to show off your work
-    Video - a 2-3 minute long video where you explain your project and the above information
+In this project, we use GAN to learn cross domain relationships between data from two domains. In this work (and also in the 
+the work described in the paper which is ur main reference), we do not use pair-pair data for training. Instead we have
+a set of images from domain 1 and a set of images from domain 2. We then try to learn the relation between the 
+domains. Given a  new imag ein domain 1,the model will generate a matching image from domain 2. 
+</p>
+
+
+<h1>Problem Statement</h1>
+<p>
+GANs are shown to work effectively in the task of 
+</p>
+
+
+<h1>Related Work</h1>
+<p>
+The main inspiration for this project is the work detailed in the paper https://arxiv.org/pdf/1703.05192.pdf. 
+We followed a similar approach as detailed in the paper, and also referred to their code base at https://github.com/SKTBrain/DiscoGAN.
+</p>
+
+<h1>Datasets</h1>
+<p>
+We used a different dataset from that is used in the paper to apply the same concepts and generate the results.
+We use our own custom dataset which was generated as follows:
+- We collected the images by scraping the web.
+- We then used applied edge detector on the images, and generated the images in the right size and 
+    format as required by the model.
+- The datset we use can be accessed at <<link>>
+</p>
+
+
+<h1>Methodology</h1>
+<p>
+#Need to read the paper to write about this
+</p>
+
+<h1>Experiments/Evaluation</h1>
+<p>
+#Need to read the paper to write about this
+</p>
+
+<h1>Results/Sample outputs</h1>
+<p>
+#Need to read the paper to write about this
+</p>
+
+</body>
+</html> 
+
