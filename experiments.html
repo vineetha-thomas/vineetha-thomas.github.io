@@ -31,16 +31,37 @@
 										<h1>Experiments</h1>
 									</header>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-
 									<p>
-										#Add experiment details and analysis here
+									In addition to the main goal to style transfer from tshirts to watches and vice versa, 
+					                we also ran the experiments listed below.
 									</p>
+									
+									<hr class="major" />
+									<h2>Edges to Tshirts</h2>
+									<p>Given edges-only images of tshirts, we train the model to generate coloured images
+									of tshirts. The exact same model and parameters are used. For training data, we have domain A
+									as edge images and domain B as images of tshirts. To get the domain A images, we first take our
+									dataset of tshirt images and then run an edge detector on it to generate the edges. We then train 
+									the model with domain A images (edge images) and domain B images (tshirt images). T
+									</p>
+									<p>The results of this experiment is accessible <a href="https://www.dropbox.com/sh/swo1b6da9xfazh8/AADc50zCRsI4YZTFevyyg8f5a/Results/last_epoch/edges2tshirts?dl=0&subfolder_nav_tracking=1">here</a>. 
+									A snapshot of a few results is given below.</p>
+									<span class="image center"><img src="images/edges2tshirts_result.png" alt=""  /></span>
+
+									<h4>Observations and Limitations</h4>
+									We see that given the edge images, real looking images of tshirts are generated.
+									Our dataset is limited, as most of the tshirt images are plain colour(grey or black)
+									same design tshirts, varying only in the print on the tshirt. 
 
 									<hr class="major" />
-
-									<h2>Subsection</h2>
-									<p>Add more details here....</p>
+									<h2>Edges to Watches</h2>
+									<p>Following the same approach as described below, we also ran experiment with 
+									   domain A as edge images of watches and domain B as images of watches. The 
+									   results of this experiment is given 
+									   <a href= "https://www.dropbox.com/sh/swo1b6da9xfazh8/AACjX8S5hxXWuzrozyh1Me2Sa/Results/last_epoch/edges2watches?dl=0&subfolder_nav_tracking=1">here</a>. 
+									   A snapshot of a few results is given below.				    
+									</p>
+									<span class="image center"><img src="images/edges2watches_result.png" alt=""  /></span>
 
 								</section>
 

@@ -54,7 +54,7 @@
 									<hr class="major" />
 									<h2>GAN with image input</h2>
 									<p>The standard GAN architecture with image input is shown in the figure below.</p>
-									<span class="image main"><img src="images/standardGAN.png" alt="" /></span>
+									<span class="image center"><img src="images/standardGAN.png" alt="" /></span>
 									
 									<p>G<sub>AB</sub> is the generator that maps from domain A to domain B. The design of the 
 									generator is as follows.
@@ -77,7 +77,7 @@
 								<p>The architecture described in the above section only learns the mapping from A to B and not from B to A. 
 								   To do this, one more generator (G<sub>BA</sub>) is added as shown in the diagram above.</p>
 
-								<span class="image main"><img src="images/GANwithReconsLoss.png" alt="" /></span>
+								<span class="image center"><img src="images/GANwithReconsLoss.png" alt="" /></span>
 								
 								<p>The reconstruction loss L<sub>CONST<sub>A</sub></sub> minimizes the MSE 
 								distance between the input image (X<sub>A</sub>) and the reconstructed image (X<sub>ABA</sub>).
@@ -90,7 +90,7 @@
 								<h2>Discovery GAN</h2>
 								<p>Discovery GAN is architecture used in this work, described in <a href="https://arxiv.org/pdf/1703.05192.pdf">this</a> paper.</p>
 
-								<span class="image main"><img src="images/discoGAN.png" alt="" /></span>
+								<span class="image center"><img src="images/discoGAN.png" alt="" /></span>
 								
 								<p>The Discovery GAN architecture couples the previously described model. The goal is to learn a 
 									bijective (one-to-one) mapping from domain A to domain B, without using any paired data for 
