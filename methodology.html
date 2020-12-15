@@ -34,7 +34,20 @@
 									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
 
 									<p>
-										#Need to read the paper to write about this
+									The standard GAN is explained in the RELATED WORK section. As explained in
+									detail there, the standard GAN takes in gaussian noise as an input and generates
+									an image(or sample) in the distribution (or domain) defined in the application.
+
+									Our application is different in three ways. One we need as input not a gaussian noise,
+									but an image from the source domain (that will henceforth be referred to as domain A). The
+									goal is to generate an image in the target domain( that will henceforth be referred to as
+									domain B). Second, we aim to learn the relation between domain A to domain B and also 
+									domain B to domain A. Third we aim to learn the two above relations without having paired
+									data for our training. i.e., in our training data, we have a set of images from domain A
+									and a set of images from domain B. But we do not have paired 'domain A to domain B' images.
+									The relation is learned in an unsupervised manner. The modifications made to the standard GAN
+									to achieve each of these goals is explained in the subsection below.
+									
 									</p>
 
 									<hr class="major" />
