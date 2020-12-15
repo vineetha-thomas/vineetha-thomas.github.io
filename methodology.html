@@ -30,32 +30,93 @@
 									<header class="main">
 										<h1>Methodology</h1>
 									</header>
-
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-
 									<p>
-									The standard GAN is explained in the RELATED WORK section. As explained in
+									The standard GAN (<a href="https://arxiv.org/pdf/1406.2661.pdf">Goodfellow et al, 2014</a>) is explained in the RELATED WORK section. As explained in
 									detail there, the standard GAN takes in gaussian noise as an input and generates
 									an image(or sample) in the distribution (or domain) defined in the application.
 
-									Our application is different in three ways. One we need as input not a gaussian noise,
-									but an image from the source domain (that will henceforth be referred to as domain A). The
+									<p>Our application is different in three ways.</p> 
+									<p>One, we need as input not a gaussian noise, but an image from the source domain (that will henceforth be referred to as domain A). The
 									goal is to generate an image in the target domain( that will henceforth be referred to as
-									domain B). Second, we aim to learn the relation between domain A to domain B and also 
-									domain B to domain A. Third we aim to learn the two above relations without having paired
+									domain B). </p>
+									<p>Second, we aim to learn the relation between domain A to domain B and also 
+									domain B to domain A. </p>
+									<p>Third, we aim to learn the two above relations without having paired
 									data for our training. i.e., in our training data, we have a set of images from domain A
 									and a set of images from domain B. But we do not have paired 'domain A to domain B' images.
-									The relation is learned in an unsupervised manner. The modifications made to the standard GAN
-									to achieve each of these goals is explained in the subsection below.
+									The relation is learned in an unsupervised manner. </p>
+									
+									<p>The modifications made to the standard GAN
+									to achieve each of these goals is explained in the subsection below.</p>
 									
 									</p>
 
 									<hr class="major" />
+									<h2>GAN with image input</h2>
+									<p>The standard GAN architecture with image input is shown in the figure below.</p>
+									<span class="image main"><img src="images/standardGAN.png" alt="" /></span>
+									
+									<p>G<sub>AB</sub> is the generator that maps from domain A to domain B. The design of the 
+									generator is as follows.
+									<ul>
+										<li>The input image size is 64x64x3</li>
+										<li>The generator uses an encoder-decoder pair</li>
+										<li>The encoder has 4 convolutional layers with 4x4 filters, each followed by LeakyReLU layers</li>
+										<li>The decoder has 4 deconvolutional layers, each followed by a ReLU</li>
+									</ul>
+								</p>									
+								<p>D<sub>B</sub> is the discriminator that is trained to distinguish between real and fake
+								images in domain B. The design of the discriminator is same as that of the encoder of the generator, 
+								with two additional units. One, an additional convolutional layer. Two, a final sigmoid layer that predicts 0/1.</p>									
 
-									<h2>Subsection</h2>
-									<p>Add more details here....</p>
+								<p>L<sub>D<sub>B</sub></sub> is the standard GAN discriminator loss. </p>
+							
+							
+								<hr class="major" />
+								<h2>Standard GAN with reconstruction loss</h2>
+								<p>The architecture described in the above section only learns the mapping from A to B and not from B to A. 
+								   To do this, one more generator (G<sub>BA</sub>) is added as shown in the diagram above.</p>
 
-								</section>
+								<span class="image main"><img src="images/GANwithReconsLoss.png" alt="" /></span>
+								
+								<p>The reconstruction loss L<sub>CONST<sub>A</sub></sub> minimizes the MSE 
+								distance between the input image (X<sub>A</sub>) and the reconstructed image (X<sub>ABA</sub>).
+								The generator G<sub>Ab</sub> is trained for a net loss which is the sum of the standard GAN generator loss 
+							   (L<sub>GAN<sub>B</sub></sub>) and the reconstruction loss (L<sub>CONST<sub>A</sub></sub>).</p>
+
+							   <p> L<sub>G<sub>AB</sub></sub>  =  L<sub>GAN<sub>B</sub></sub> + L<sub>CONST<sub>A</sub></sub> </p>
+				
+								<hr class="major" />
+								<h2>Discovery GAN</h2>
+								<p>Discovery GAN is architecture used in this work, described in <a href="https://arxiv.org/pdf/1703.05192.pdf">this</a> paper.</p>
+
+								<span class="image main"><img src="images/discoGAN.png" alt="" /></span>
+								
+								<p>The Discovery GAN architecture couples the previously described model. The goal is to learn a 
+									bijective (one-to-one) mapping from domain A to domain B, without using any paired data for 
+									training. The two coupled models are trained together simultaneously. With this architecture, 
+									we have two reconstruction losses (A-B and B-A) and two discriminator losses.
+									The net generator and discriminator losses are as below.
+								</p>
+
+								<p> L<sub>G</sub> = L<sub>G<sub>AB</sub></sub> + L<sub>G<sub>BA</sub></sub> 
+								     = L<sub>GAN<sub>B</sub></sub> + L<sub>CONST<sub>A</sub></sub> + L<sub>GAN<sub>A</sub></sub> + L<sub>CONST<sub>B</sub></sub>
+								</p>
+						
+								<p>
+									L<sub>D</sub> = L<sub>D<sub>A</sub></sub> + L<sub>D<sub>B</sub></sub>
+								</p>
+							
+								<p>
+									As stated before, the goal is to learn the relation functions G<sub>AB</sub> and G<sub>BA</sub>. 
+									As stated in the paper, this relation is constrained to be bijective, i.e., G<sub>AB</sub> is 
+									the index of G<sub>BA</sub> and vice versa.
+
+									As claimed in the paper, since the model is constrained by two L<sub>GAN</sub> losses and two L<sub>CONST</sub> 
+									losses, therefore a bijective mapping is achieved.
+								</p>
+							
+							</section>
 
 						</div>
 					</div>
