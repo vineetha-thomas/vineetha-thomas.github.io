@@ -30,10 +30,37 @@
 									<header class="main">
 										<h1>Related Work</h1>
 									</header>
+									<hr class="major" />
+									<h2> Generative Vs Discriminative models</h2>
+									<p>Discriminative Algorithms classify the data. Consider for example the classification of emails as spam or not spam,
+									or Convolutional Neural Networks that classify handwritten digits etc.
+									In other words,  Discriminative Algorithms predict the class label y given the input features x of the training data. i.e. p(y|x).
 
-									<p>The main inspiration for this project is the work detailed in the paper https://arxiv.org/pdf/1703.05192.pdf. 
-									We followed a similar approach as detailed in the paper, and also referred to their code base at https://github.com/SKTBrain/DiscoGAN.
+									On the other hand, Generative models address the question of how likely are the features x given the label y. i.e. p(x|y).
+									e.g. Considering that an email is spam how likely are the text features. </p>
+
+									<hr class="major" />
+									<h2> Generative Adversarial Networks</h2>
+									<p> Generative Adversarial Networks (GANs) are a type of generative models introduced by Ian Goodfellow in 2014, wherein 2 models are trained simultaneously in mnimax 2 player setting.
+										1. Discriminator learns to estimate the probability that a sample came from a Generator or training data
+										2. Generator learns the probability distribution of the training data
+
+										The training procedure for G is to maximize the probability of D making a mistake (To generate the images so realistic
+										that the Discriminator cannot distinguish between the real and fake images.)
+
+										At a high level, the following diagram explains the architecture for generating handwritten digits:</p>
+										<span class="image main"><img src="images/gan_arch.png" alt="" /></span>
+										<p>
+											As shown in the figure, the discriminator network is a CNN that classifies the images into real and fake.
+										Generator takes random noise as input and generates images by performing upsampling (Deconvolution).
+										Both networks try to optimize different loss functions in zero sum game setting. 
 									</p>
+
+
+									<h2> References</h2>
+									1. https://www.freecodecamp.org/news/an-intuitive-introduction-to-generative-adversarial-networks-gans-7a2264a81394/
+									2. https://papers.nips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf
+
 
 								</section>
 
